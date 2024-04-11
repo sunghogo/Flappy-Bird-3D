@@ -20,6 +20,15 @@ public class Flappy : MonoBehaviour
     }
 
     private void Falling() {
-        transform.position = transform.position - new Vector3(0, 1, 0) * Time.deltaTime * _gravity;    
+        Gravity();
+        RotateDown();
+    }
+
+    private void Gravity() {
+        transform.position = transform.position - new Vector3(0, 1, 0) * Time.deltaTime * _gravity;
+    }
+
+    private void RotateDown() {
+        transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * _rotationSpeed); // Extra Credit    
     }
 }
