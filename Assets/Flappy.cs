@@ -19,7 +19,7 @@ public class Flappy : MonoBehaviour
     {
         FallDown();
         if (Input.GetKey(KeyCode.Space)) {
-            Fly();
+            FlyUp();
         }
     }
 
@@ -36,7 +36,16 @@ public class Flappy : MonoBehaviour
         transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * _rotationSpeed); // Extra Credit    
     }
 
+    private void FlyUp() {
+        Fly();
+        RotateUp();
+    }
+
     private void Fly() {
         transform.position = transform.position + new Vector3(0, 2, 0) * Time.deltaTime * _flySpeed;
+    }
+
+    private void RotateUp() {
+        transform.Rotate(new Vector3(-2, 0, 0) * Time.deltaTime * _rotationSpeed); // Extra Credit    
     }
 }
